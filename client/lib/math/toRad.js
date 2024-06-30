@@ -1,3 +1,1 @@
-export function toRad() {
-  
-}
+export function toRad() {}

@@ -1,3 +1,1 @@
-export function toDeg() {
-  
-}
+export function toDeg() {}

@@ -1,10 +1,15 @@
 import { getNode } from './getNode.js';
 import { isString } from '../utils/type.js';
 
-export function bindEvent(node, type, handler) {
+function clearContents(node) {
   if (isString(node)) node = getNode(node);
 
-  node.addEventListener(type, handler);
+  if (node.nodeName === 'INPUT' || node.nodeName === 'TEXTAREA') {
+    node.value = '';
+    return;
+  }
 
-  return () => node.removeEventListener(type, handler);
+  node.textContent = '';
 }
+
+export default clearContents;
